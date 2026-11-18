@@ -1,0 +1,3 @@
+PASS: ufw is active
+PASS: default policy denies incoming traffic
+PASS: SSH (22/tcp) is allowed

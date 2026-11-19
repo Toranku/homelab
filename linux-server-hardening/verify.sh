@@ -15,3 +15,9 @@ echo "$ufw_status" | grep -q "deny (incoming)" \
 
 echo "$ufw_status" | grep -q "22/tcp.*ALLOW IN" \
   && pass "SSH (22/tcp) is allowed" || fail "SSH is not allowed"
+
+sudo systemctl is-active --quiet fail2ban \
+  && pass "fail2ban service is running" || fail "fail2ban service is not running"
+
+sudo fail2ban-client status sshd > /dev/null 2>&1 \
+  && pass "fail2ban sshd jail is enabled" || fail "fail2ban sshd jail is not enabled"

@@ -1,0 +1,7 @@
+PASS: ufw is active
+PASS: default policy denies incoming traffic
+PASS: SSH (22/tcp) is allowed
+PASS: fail2ban service is running
+PASS: fail2ban sshd jail is enabled
+PASS: unattended-upgrades is enabled
+PASS: daily unattended upgrades are configured

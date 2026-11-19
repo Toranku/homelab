@@ -21,3 +21,9 @@ sudo systemctl is-active --quiet fail2ban \
 
 sudo fail2ban-client status sshd > /dev/null 2>&1 \
   && pass "fail2ban sshd jail is enabled" || fail "fail2ban sshd jail is not enabled"
+
+sudo systemctl is-enabled --quiet unattended-upgrades \
+  && pass "unattended-upgrades is enabled" || fail "unattended-upgrades is not enabled"
+
+grep -q 'Unattended-Upgrade "1"' /etc/apt/apt.conf.d/20auto-upgrades \
+  && pass "daily unattended upgrades are configured" || fail "daily unattended upgrades are not configured"
